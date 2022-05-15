@@ -1,0 +1,41 @@
+{
+  "name": "react-use-callback-factory",
+  "version": "0.0.1",
+  "description": "React use callback factory",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coolassassin/react-use-callback-factory.git"
+  },
+  "keywords": [
+    "react",
+    "use",
+    "callback",
+    "factory",
+    "hook"
+  ],
+  "author": "coolassassin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coolassassin/react-use-callback-factory/issues"
+  },
+  "homepage": "https://github.com/coolassassin/react-use-callback-factory#readme",
+  "devDependencies": {
+    "react": "^18.1.0"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0"
+  },
+  "dependencies": {
+    "micro-memoize": "^4.0.10"
+  },
+  "files": [
+    "index.js",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ]
+}
