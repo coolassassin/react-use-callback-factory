@@ -2,9 +2,16 @@
   "name": "react-use-callback-factory",
   "version": "0.0.1",
   "description": "React use callback factory",
-  "main": "index.js",
+  "main": "dist/cjs.js",
+  "module": "dist/es.js",
+  "browser": {
+    "./dist/cjs.js": "./dist/cjs.js",
+    "./dist/es.js": "./dist/es.js"
+  },
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -24,7 +31,19 @@
   },
   "homepage": "https://github.com/coolassassin/react-use-callback-factory#readme",
   "devDependencies": {
-    "react": "^18.1.0"
+    "@babel/core": "^7.18.0",
+    "@babel/preset-env": "^7.18.0",
+    "@babel/preset-typescript": "^7.17.12",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/react": "^18.0.9",
+    "react": "^18.1.0",
+    "rollup": "^2.74.1",
+    "rollup-plugin-hashbang": "^3.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "typescript": "^4.6.4"
   },
   "peerDependencies": {
     "react": ">= 16.8.0"
@@ -33,6 +52,7 @@
     "micro-memoize": "^4.0.10"
   },
   "files": [
+    "dist",
     "index.js",
     "package.json",
     "README.md",
