@@ -1,7 +1,5 @@
 # React use callback factory
 It is very simple React hook to create callback factories
-
-
 ## Installation
 ```
 npm i react-use-callback-factory
@@ -18,6 +16,9 @@ const onClickFactory = useCallbackFactory((id) => onClick(id), [onClick]);
 
 <Component onClick={onClickFactory(id)} />
 ```
+
+### Some notes
+Don't forget to [add this hook to ESLint](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md#advanced-configuration) to avoid mistakes with dependencies.
 
 ## Why this hook?
 Quite often you can find the code like that:
@@ -37,7 +38,7 @@ const Component = ({anyArray, onClick}) => {
 ```
 
 We can see that it is memo component, but we use arrow function to create callback and break the memo.
-Quite often we can see something like that:  
+Quite often we can see something like that as decision:  
 ```javascript
 const Component = ({anyArray, onClick}) => {
     const onClickFactory = useCallback((id) => onClick(id), [onClick]);
@@ -56,7 +57,7 @@ const Component = ({anyArray, onClick}) => {
 
 It seems that it can help, but it is wrong. Factory will be the same, but result will be the same.
 
-That why wi have this hook:
+That why we have this hook:
 ```javascript
 const Component = ({anyArray, onClick}) => {
     const onClickFactory = useCallbackFactory((id) => onClick(id), [onClick]);
