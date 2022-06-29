@@ -1,4 +1,7 @@
 import * as React from 'react';
-import micromemoize from 'micro-memoize';
+import memoize from 'fast-memoize';
 
-export const useCallbackFactory = <T extends (...args: Array<any>) => any>(callback: T, deps: React.DependencyList | undefined): T => React.useMemo(() => micromemoize(callback), deps)
+type Factory = (...args: Array<any>) => (...args: Array<any>) => any;
+
+export const useCallbackFactory = <T extends Factory>(callback: T, deps: React.DependencyList): T =>
+    React.useMemo<T>(() => memoize(callback), deps);

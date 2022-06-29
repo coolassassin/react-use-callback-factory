@@ -10,11 +10,12 @@ yarn add react-use-callback-factory
 
 ## Use
 ```javascript
-const onClickFactory = useCallbackFactory((id) => onClick(id), [onClick]);
+const onClickFactory = useCallbackFactory((id) => () => onClick(id), [onClick]);
+const onChangeFactory = useCallbackFactory((id) => (value: string) => onChange(id, value), [onChange]);
 
 ...
 
-<Component onClick={onClickFactory(id)} />
+<Component onClick={onClickFactory(id)} onChange={onChangeFactory(id)} />
 ```
 
 ### Some notes
@@ -60,7 +61,7 @@ It seems that it can help, but it is wrong. Factory will be the same, but result
 That why we have this hook:
 ```javascript
 const Component = ({anyArray, onClick}) => {
-    const onClickFactory = useCallbackFactory((id) => onClick(id), [onClick]);
+    const onClickFactory = useCallbackFactory((id) => () => onClick(id), [onClick]);
     return <>
         {
             anyArray.map(
