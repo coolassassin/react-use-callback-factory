@@ -1,6 +1,6 @@
 {
   "name": "react-use-callback-factory",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "React use callback factory",
   "main": "dist/cjs.js",
   "module": "dist/es.js",
