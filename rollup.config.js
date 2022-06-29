@@ -30,5 +30,5 @@ export default {
         babel({ extensions: ['.ts', '.js'], exclude: './node_modules/**' }),
         hashbang()
     ],
-    external: ['react', 'micro-memoize']
+    external: ['react', 'fast-memoize']
 };
